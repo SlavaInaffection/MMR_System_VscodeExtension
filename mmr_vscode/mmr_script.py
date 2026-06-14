@@ -18,10 +18,11 @@ def fetching_repo():
     print(response.status_code)
     repos = response.json()
 
-
+    repo_list = []
     for repo in repos:
         repo_name = repo['name']
         print(repo_name)
+        repo_list.append(repo_name)
         repos_response = requests.get(f'https://api.github.com/repos/{USERNAME}/{repo_name}/commits', headers=headers)
     
 
@@ -31,14 +32,14 @@ def fetching_repo():
             mod_commit_date = commit_date.split('T')
             date_list.append(mod_commit_date[0])
     print(date_list)
-    return(date_list)
+    return(date_list,repo_list)
 
 
 def mmr_counting():
- dates = fetching_repo()
+ dates, repo_list = fetching_repo()
  #MMR logic 
  mmr = 0
- mmr = mmr + len(dates) * 10
+ 
  unique_dates = sorted(set(dates))
  streak = 1
  max_streak = 1
@@ -57,6 +58,7 @@ def mmr_counting():
         else:
             streak = 1 
 
- print(f"Current streak: {streak}")
- print(f"Max streak: {max_streak}")
-
+ print(repo_list)
+ mmr = mmr + len(dates)*10 + max_streak*5 + len(repo_list)* 100
+ print(mmr)
+mmr_counting()
