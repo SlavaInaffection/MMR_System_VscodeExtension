@@ -1,4 +1,5 @@
 # MMR System
+TO DOWNLOAD THE EXTENSION, OPEN VSCODE -> CMD+SHIFT+P: INSTALL EXTENSIONS -> IN SEARCH BAR "MMR System" -> SETTINGS -> PERSONAL TOKEN AND USERNAME
 
 Gamify your coding life. MMR System tracks your GitHub commits and awards you a **Matchmaking Rating** — just like Dota 2, League of Legends, or APEX — based on how consistently and actively you push code.
 
